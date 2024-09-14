@@ -6,6 +6,7 @@
     <title>VTU Padhai</title>
     <style>
         /* General Styles */
+        
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(120deg, #f6d365, #fda085);
@@ -225,7 +226,7 @@
     </header>
 
     <div class="container">
-        <h2>Select a Semester</h2>
+        <h2>Select a Semester and check the notes attached below</h2>
         <div id="semester-grid" class="semester-grid">
             <!-- 8 semester boxes -->
             <div class="semester-box" onclick="showNotes(1)">Semester 1</div>
@@ -244,7 +245,7 @@
             <!-- Notes will be dynamically populated here -->
             {% for note in notes %}
                 <li class="note-item semester-note" data-semester="{{ note.semester }}">
-                    <a href="{{ note.pdf_file.url }}">{{ note.title }} - Semester {{ note.get_semester_display }}</a>
+                    <a href="{{ note.pdf_file.url }}">{{ note.title }} ---> {{ note.get_semester_display }}</a>
                 </li>
             {% empty %}
                 <li>No notes available.</li>
