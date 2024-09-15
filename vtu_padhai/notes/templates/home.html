@@ -282,7 +282,173 @@ footer p {
     font-size: 1.2em;
     color: #2c3e50;
 }
+<style>
+    
+    /* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
 
+/* Container for both sections */
+.section-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 50px;
+}
+
+/* Styling for each box */
+.box {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    flex: 1 1 300px;
+}
+
+//* Search box container */
+#search-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 90%;
+}
+
+/* Heading for the search box */
+#search-box h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Style for the search input */
+#search-box input[type="text"] {
+    padding: 14px 20px;
+    width: 100%;
+    max-width: 350px;
+    border-radius: 30px;
+    border: 1px solid #ccc;
+    background: linear-gradient(145deg, #ffffff, #e9e9e9);
+    font-size: 1rem;
+    color: #333;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1), -4px -4px 12px rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+/* Focus style for the search input */
+#search-box input[type="text"]:focus {
+    border-color: #007bff;
+    background: #fff;
+    box-shadow: 0 0 12px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Style for the search button */
+#search-box button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+#search-box button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Basic styling for the box container */
+.box {
+    padding: 20px;
+    background: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* Heading inside the box */
+.box h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+/* Button inside the box */
+.box button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+}
+
+.box button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .box h3 {
+        font-size: 1.5rem;
+    }
+
+    .box button {
+        font-size: 1.2rem; /* Adjusted to fit better */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .box {
+        padding: 15px;
+    }
+
+    .box h3 {
+        font-size: 1.2rem;
+    }
+
+    .box button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+
+</style>
 
     </style>
 </head>
@@ -290,7 +456,22 @@ footer p {
     <header>
         <h1>Welcome to VTU Padhai</h1>
     </header>
-
+    <div class="container">
+        <h2>Select a Semester and check the notes attached below</h2>
+        <!-- YouTube Search Box -->
+        <div class="youtube-search">
+            <h3>Search on YouTube</h3>
+            <form id="youtube-search-form" action="https://www.youtube.com/results" method="get" target="_blank">
+                <input type="text" name="search_query" placeholder="Search YouTube for related topics..." required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="youtube-section">
+            <h3 class="youtube-heading">Watch VTU Padhai Tutorial on YouTube</h3>
+            <button id="load-video-btn" class="youtube-btn">Watch Now</button>
+            <div id="youtube-video-container" class="youtube-container"></div>
+        </div>
+        
     <div class="container">
         <h2>Select a Semester and check the notes attached below</h2>
         <div id="semester-grid" class="semester-grid">
@@ -404,5 +585,57 @@ footer p {
             // Add further form handling logic (e.g., AJAX request) as needed
         });
     </script>
+    <script>
+        // Function to dynamically load a YouTube video
+        function loadYouTubeVideo(videoId) {
+            const videoContainer = document.getElementById('youtube-video-container');
+            
+            // Create an iframe element for YouTube video
+            const iframe = document.createElement('iframe');
+            iframe.setAttribute('width', '100%');
+            iframe.setAttribute('height', '400px');
+            iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`);
+            iframe.setAttribute('frameborder', '0');
+            iframe.setAttribute('allow', 'autoplay; encrypted-media');
+            iframe.setAttribute('allowfullscreen', 'true');
+    
+            // Clear any previous content and load the new video
+            videoContainer.innerHTML = '';
+            videoContainer.appendChild(iframe);
+        }
+    
+        // Event listener for the YouTube button
+        document.getElementById('load-video-btn').addEventListener('click', function () {
+            const videoId = 'your-video-id-here'; // Replace with the actual YouTube video ID
+            loadYouTubeVideo(videoId);
+        });
+    </script>
+    <script>
+    // Function to dynamically load a YouTube video
+    function loadYouTubeVideo(videoId) {
+        const videoContainer = document.getElementById('youtube-video-container');
+        
+        // Create an iframe element for YouTube video
+        const iframe = document.createElement('iframe');
+        iframe.setAttribute('width', '100%');
+        iframe.setAttribute('height', '400px');
+        iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?rel=0&autoplay=1`);
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute('allow', 'autoplay; encrypted-media');
+        iframe.setAttribute('allowfullscreen', 'true');
+
+        // Clear any previous content and load the new video
+        videoContainer.innerHTML = '';
+        videoContainer.appendChild(iframe);
+    }
+
+    // Event listener for the YouTube button
+    document.getElementById('load-video-btn').addEventListener('click', function () {
+        const videoId = 'i9Fl7bBPTKE'; // Your YouTube video ID
+        loadYouTubeVideo(videoId);
+    });
+</script>
+
+    
 </body>
 </html>
