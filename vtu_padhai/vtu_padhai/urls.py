@@ -5,7 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('notes.urls')),  # Include the notes app's URLs
+    path('', include('notes.urls')),
+    path('chatbot/', include('chatbot.urls')),# Include the notes app's URLs
 ]
 
 # Serve media files during development
