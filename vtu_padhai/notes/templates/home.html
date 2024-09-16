@@ -446,6 +446,111 @@ body {
         font-size: 0.9rem;
     }
 }
+/* General Styling */
+#youtube-section {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.youtube-heading {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+#load-video-btn {
+    background-color: #ff4500; /* Bright orange for a strong CTA */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 0 5px 15px rgba(255, 69, 0, 0.3);
+}
+
+/* Hover Effect */
+#load-video-btn:hover {
+    background-color: #e63e00;
+    box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+}
+
+/* Active Effect */
+#load-video-btn:active {
+    background-color: #cc3700;
+    transform: scale(0.98); /* Slight scale down effect */
+}
+
+.youtube-container {
+    margin-top: 20px;
+}
+
+/* YouTube Search Section Styling */
+.youtube-search {
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+    background-color: #eef2f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.youtube-search h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#youtube-search-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#youtube-search-form input[type="text"] {
+    width: 60%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+#youtube-search-form input[type="text"]:focus {
+    border-color: #ff4500; /* Focus border color */
+}
+
+#youtube-search-form button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 69, 0, 0.3);
+}
+
+#youtube-search-form button:hover {
+    background-color: #e63e00;
+    box-shadow: 0 6px 18px rgba(255, 69, 0, 0.4);
+}
+
+#youtube-search-form button:active {
+    background-color: #cc3700;
+    transform: scale(0.98);
+}
 
 
 </style>
@@ -634,8 +739,6 @@ body {
         const videoId = 'i9Fl7bBPTKE'; // Your YouTube video ID
         loadYouTubeVideo(videoId);
     });
-</script>
-
-    
+</script>    
 </body>
 </html>
